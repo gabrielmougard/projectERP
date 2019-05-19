@@ -20,8 +20,8 @@ func init() {
 	beego.Router("/login/:action([A-Za-z]+)/", &base.LoginController{})
 	//User
 	beego.Router("/user/?:id", &base.UserController{})
-	//the association
-	beego.Router("/association/?:id", &base.AssociationController{})
+	//the companies
+	beego.Router("/company/?:id", &base.CompanyController{})
 	//the lab
 	beego.Router("/department/?:id", &base.LabController{})
 	//the position

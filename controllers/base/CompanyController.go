@@ -3,18 +3,18 @@ package base
 import (
 	"bytes"
 	"encoding/json"
-	md "goERP/models"
+	md "projectERP/models"
 	"strconv"
 	"strings"
 )
 
 // CompanyController 公司
-type AssociationController struct {
+type CompanyController struct {
 	BaseController
 }
 
-func (ctl *AssociationController) Post() {
-	ctl.URL = "/association/"
+func (ctl *CompanyController) Post() {
+	ctl.URL = "/company/"
 	ctl.Data["URL"] = ctl.URL
 	action := ctl.Input().Get("action")
 	switch action {
@@ -28,9 +28,9 @@ func (ctl *AssociationController) Post() {
 		ctl.PostList()
 	}
 }
-func (ctl *AssociationController) Get() {
-	ctl.URL = "/association/"
-	ctl.PageName = "Association management"
+func (ctl *CompanyController) Get() {
+	ctl.URL = "/company/"
+	ctl.PageName = "Company management"
 	action := ctl.Input().Get("action")
 	switch action {
 	case "create":
@@ -53,20 +53,20 @@ func (ctl *AssociationController) Get() {
 }
 
 // Put 
-func (ctl *AssociationController) Put() {
+func (ctl *CompanyController) Put() {
 	result := make(map[string]interface{})
 	postData := ctl.GetString("postData")
-	association := new(md.Association)
+	company := new(md.Company)
 	
 	var (
 		err error
 		id  int64
 	)
 
-	if err = json.Unmarshal([]byte(postData), association); err == nil {
+	if err = json.Unmarshal([]byte(postData), company); err == nil {
 
-		// structName := reflect.Indirect(reflect.ValueOf(association)).Type().Name()
-		if id, err = md.UpdateAssociation(association, &ctl.User); err == nil {
+		// structName := reflect.Indirect(reflect.ValueOf(company)).Type().Name()
+		if id, err = md.UpdateCompany(company, &ctl.User); err == nil {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
@@ -82,19 +82,19 @@ func (ctl *AssociationController) Put() {
 	ctl.Data["json"] = result
 	ctl.ServeJSON()
 }
-func (ctl *AssociationController) PostCreate() {
+func (ctl *CompanyController) PostCreate() {
 	result := make(map[string]interface{})
 	postData := ctl.GetString("postData")
-	association := new(md.Association)
+	company := new(md.Company)
 	var (
 		err error
 		id  int64
 	)
-	if err = json.Unmarshal([]byte(postData), association); err == nil {
+	if err = json.Unmarshal([]byte(postData), company); err == nil {
 	
 		// structName := reflect.Indirect(reflect.ValueOf(company)).Type().Name()
 
-		if id, err = md.AddAssociation(association, &ctl.User); err == nil {
+		if id, err = md.AddCompany(company, &ctl.User); err == nil {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
@@ -110,13 +110,13 @@ func (ctl *AssociationController) PostCreate() {
 	ctl.Data["json"] = result
 	ctl.ServeJSON()
 }
-func (ctl *AssociationController) Edit() {
+func (ctl *CompanyController) Edit() {
 	id := ctl.Ctx.Input.Param(":id")
 	if id != "" {
 		if idInt64, e := strconv.ParseInt(id, 10, 64); e == nil {
-			if association, err := md.GetAssociationByID(idInt64); err == nil {
-				ctl.PageAction = association.Name
-				ctl.Data["Association"] = association
+			if company, err := md.GetCompanyByID(idInt64); err == nil {
+				ctl.PageAction = company.Name
+				ctl.Data["Company"] = company
 			}
 		}
 	}
@@ -124,29 +124,29 @@ func (ctl *AssociationController) Edit() {
 	ctl.Data["RecordID"] = id
 	ctl.Data["FormField"] = "form-edit"
 	ctl.Layout = "base/base.html"
-	ctl.TplName = "user/association_form.html"
+	ctl.TplName = "user/company_form.html"
 }
-func (ctl *AssociationController) Detail() {
+func (ctl *CompanyController) Detail() {
 	ctl.Edit()
 	ctl.Data["Readonly"] = true
 	ctl.Data["FormTreeField"] = "form-tree-edit"
 	ctl.Data["Action"] = "detail"
 }
-func (ctl *AssociationController) Create() {
+func (ctl *CompanyController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
 	ctl.PageAction = "create"
 	ctl.Layout = "base/base.html"
 	ctl.Data["FormField"] = "form-create"
 	ctl.Data["FormTreeField"] = "form-tree-create"
-	ctl.TplName = "user/association_form.html"
+	ctl.TplName = "user/company_form.html"
 }
 
-func (ctl *AssociationController) Validator() {
+func (ctl *CompanyController) Validator() {
 	name := strings.TrimSpace(ctl.GetString("Name"))
 	recordID, _ := ctl.GetInt64("recordID")
 	result := make(map[string]bool)
-	obj, err := md.GetAssociationByName(name)
+	obj, err := md.GetCompanyByName(name)
 	if err != nil {
 		result["valid"] = true
 	} else {
@@ -167,10 +167,10 @@ func (ctl *AssociationController) Validator() {
 }
 
 
-func (ctl *AssociationController) addressTemplateList(query map[string]interface{}, exclude map[string]interface{}, cond map[string]map[string]interface{}, fields []string, sortby []string, order []string, offset int64, limit int64) (map[string]interface{}, error) {
+func (ctl *CompanyController) addressTemplateList(query map[string]interface{}, exclude map[string]interface{}, cond map[string]map[string]interface{}, fields []string, sortby []string, order []string, offset int64, limit int64) (map[string]interface{}, error) {
 
-	var arrs []md.Association
-	paginator, arrs, err := md.GetAllAssociation(query, exclude, cond, fields, sortby, order, offset, limit)
+	var arrs []md.Company
+	paginator, arrs, err := md.GetAllCompany(query, exclude, cond, fields, sortby, order, offset, limit)
 	result := make(map[string]interface{})
 	if err == nil {
 
@@ -211,7 +211,7 @@ func (ctl *AssociationController) addressTemplateList(query map[string]interface
 	}
 	return result, err
 }
-func (ctl *AssociationController) PostList() {
+func (ctl *CompanyController) PostList() {
 	query := make(map[string]interface{})
 	exclude := make(map[string]interface{})
 	cond := make(map[string]map[string]interface{})
@@ -263,13 +263,13 @@ func (ctl *AssociationController) PostList() {
 
 }
 
-func (ctl *AssociationController) GetList() {
+func (ctl *CompanyController) GetList() {
 	viewType := ctl.Input().Get("view")
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
 	ctl.PageAction = "List"
-	ctl.Data["tableId"] = "table-association"
+	ctl.Data["tableId"] = "table-company"
 	ctl.Layout = "base/base_list_view.html"
-	ctl.TplName = "user/association_list_search.html"
+	ctl.TplName = "user/company_list_search.html"
 }
