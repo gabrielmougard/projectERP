@@ -1,0 +1,12 @@
+.project
+*.exe
+*.exe~
+.vscode/
+ projectERP.*
+debug
+debug~
+.idea
+logs/*.log
+/conf/app.conf
+projectERP.sqlite3
+projectERP
