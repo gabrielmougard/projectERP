@@ -1,0 +1,104 @@
+<div class="row">
+    <p id="list-title">{{.PageName}}</p>
+</div>
+
+<form id="roleForm" action="{{.URL}}{{.RecordID}}?action={{.Action}}" method="post" class="post-form form-horizontal {{if .Readonly}}form-disabled{{else}}form-edit{{end}}" role="form">
+    <div class="row">
+        {{if .RecordID}} {{if .Readonly}}
+        <a href="{{.URL}}{{.RecordID}}?action=edit" class="btn btn-success fa fa-pencil pull-left form-edit-btn">&nbspEdit</a>
+        <a href="{{.URL}}?action=create" type="buttom" class="btn btn-success fa fa-plus pull-left form-create-btn">&nbspNew</a>{{end}}{{end}}
+        <button type="submit" form="roleForm" class="btn btn-primary fa fa-save pull-left form-save-btn">&nbspSave</button> {{if .Readonly}}
+        <button type="button" class="btn btn-danger fa fa-remove  pull-left form-cancel-btn">&nbspCancel</button> {{else}}
+        <a href="{{.URL}}" class="btn btn-danger fa fa-remove  pull-left">&nbspCancel</a> {{end}}
+        <a href="{{.URL}}" class="btn btn-info fa fa-list pull-left">&nbspList</a>
+    </div>
+    {{ .xsrf }} {{if .RecordID}}
+    <input type="hidden" data-type="int" class="{{.FormField}}" name="recordID" id="record-id" value="{{.RecordID}}"> {{end}}
+
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label label-start">Role Name<span class="required-input">&nbsp*</span></label>
+                            <div class="col-md-8">
+                                <p class="p-form-control">{{if .Role}} {{.Role.Name}} {{end}}</p>
+                                <input data-type="string" class="{{.FormField}} form-control" id="name" name="Name" type="text" {{if .Role}} value="{{.Role.Name}}" {{end}} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <legend>User Info</legend>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="permissionIds" class="col-md-2 control-label label-start">User of the role</label>
+                            <div class="col-md-10">
+                                <p class="p-form-control">{{if and .Role .Role.Users}} {{range $j,$attrVal := .Role.Users}}<a class='display-block label label-primary'>{{$attrVal.Name}}</a> {{end}}{{end}}</p>
+                                <select data-type='array_int' data-name='UserIds' name='UserIds' id='userIds' multiple='multiple' class='{{.FormField}} form-control select-user'>
+                                    {{if and .Role  .Role.Users}} 
+                                        {{range $j,$attrVal :=  .Role.Users}}
+                                            <option value=" {{$attrVal.ID}} " selected="selected ">{{$attrVal.Name}}</option>
+                                        {{end}}
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-6 ">
+            <fieldset>
+                <legend>Permission information</legend>
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <div class="form-group ">
+                            <label for="permissionIds " class="col-md-2 control-label label-start ">Role has permissions</label>
+                            <div class="col-md-10 ">
+                                <p class="p-form-control ">{{if and .Role .Role.Permissions}} {{range $j,$attrVal := .Role.Permissions}}<a class='display-block label label-primary'>{{$attrVal.Name}}</a> {{end}}{{end}}</p>
+                                <select data-type='array_int' data-name='PermissionIds' name='PermissionIds' id='permissionIds' multiple='multiple' class='{{.FormField}} form-control select-permission'>
+                                    {{if and .Role  .Role.Permissions}} 
+                                        {{range $j,$attrVal :=  .Role.Permissions}}
+                                            <option value="{{$attrVal.ID}} " selected="selected ">{{$attrVal.Name}}</option>
+                                        {{end}}
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-6 ">
+            <fieldset>
+                <legend>Menu information</legend>
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <div class="form-group ">
+                            <label for="menuIds " class="col-md-2 control-label label-start ">Role visible menu</label>
+                            <div class="col-md-10 ">
+                                <p class="p-form-control ">{{if and .Role .Role.Menus}} {{range $j,$attrVal := .Role.Menus}}<a class='display-block label label-primary'>{{$attrVal.Name}}</a> {{end}}{{end}}</p>
+                                <select data-type='array_int' data-name='MenuIds' name='MenuIds' id='menuIds' multiple='multiple' class='{{.FormField}} form-control select-menu'>
+                                    {{if and .Role  .Role.Menus}} 
+                                        {{range $j,$attrVal :=  .Role.Menus}}
+                                            <option value="{{$attrVal.ID}} " selected="selected ">{{$attrVal.Name}}</option>
+                                        {{end}}
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
