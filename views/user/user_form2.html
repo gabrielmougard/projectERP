@@ -1,0 +1,127 @@
+<div class="row">
+    <p id="list-title">{{.PageName}}</p>
+</div>
+<form id="userForm" action="{{.URL}}{{.RecordID}}?action={{.Action}}" method="post" class="post-form form-horizontal {{if .Readonly}}form-disabled{{else}}form-edit{{end}}" role="form">
+    <div class="row">
+        {{if .RecordID}} {{if .Readonly}}
+        <a href="{{.URL}}{{.RecordID}}?action=edit" class="btn btn-success fa fa-pencil pull-left form-edit-btn">&nbspEdit</a>
+        <a href="{{.URL}}?action=create" type="buttom" class="btn btn-success fa fa-plus pull-left form-create-btn">&nbspNew</a>{{end}}{{end}}
+        <button type="submit" form="userForm" class="btn btn-primary fa fa-save pull-left form-save-btn">&nbspSave</button> {{if .Readonly}}
+        <button type="button" class="btn btn-danger fa fa-remove  pull-left form-cancel-btn">&nbspCancel</button> {{else}}
+        <a href="{{.URL}}" class="btn btn-danger fa fa-remove  pull-left">&nbspCancel</a> {{end}}
+        <a href="{{.URL}}" class="btn btn-info fa fa-list pull-left">&nbspList</a>
+    </div>
+    {{ .xsrf }} {{if .RecordID}}
+    <input type="hidden" data-type="int" name="recordID" id="record-id" class="{{.FormField}}" value="{{.RecordID}}"> {{end}}
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name" class="col-md-4 control-label label-start">name<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{.User.Name}} </p>
+                            <input data-type="string" class="form-control {{.FormField}}" id="name" name="Name" {{if not .Readonly}}autofocus{{end}} type="text" data-oldValue="{{.User.Name}}" value="{{.User.Name}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="namezh" class="col-md-4 control-label">surname<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{.User.NameZh}} </p>
+                            <input data-type="string" class="form-control {{.FormField}}" id="namezh" name="NameZh" type="text" data-oldValue="{{.User.NameZh}}" value="{{.User.NameZh}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="mobile" class="col-md-4 control-label label-start">mobile number<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{.User.Mobile}} </p>
+                            <input data-type="string" class="form-control {{.FormField}}" name="Mobile" id="mobile" type="text" data-oldValue="{{.User.Mobile}}" value="{{.User.Mobile}}" />
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="tel" class="col-md-4 control-label">Landline</label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{.User.Tel}} </p>
+                            <input data-type="string" class="form-control {{.FormField}}" name="Tel" id="tel" type="text" data-oldValue="{{.User.Tel}}" value="{{.User.Tel}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email" class="col-md-4 control-label label-start">mailbox<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{.User.Email}} </p>
+                            <input data-type="string" class="form-control {{.FormField}}" name="Email" id="email" type="email" data-oldValue="{{.User.Email}}" value="{{.User.Email}}" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <legend>system message</legend>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="isadmin" class="col-md-4 control-label ">root</label>
+                        <div class="col-md-8 ">
+                            <input name="isadmin" id="isadmin" class="form-control form-checkbox {{.FormField}}" type="checkbox">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="active" class="col-md-4 control-label ">effective</label>
+                        <div class="col-md-8 ">
+                            <input name="Active" id="active" class="form-control form-checkbox {{.FormField}}" checked="checked" type="checkbox">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Department" class="col-md-4 control-label label-start">Lab<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{if .User}} {{if .User.Lab}} {{.User.Lab.Name}}{{end}} {{end}}</p>
+                            <select data-type="int" aria-hidden="true" name="Lab" id="department" class="form-control select-department {{.FormField}}" {{if .User}} {{if .User.Lab}} data-default-id="{{.User.Lab.ID}}" data-default-name="{{.User.Lab.Name}}"
+                                {{end}} {{end}}>
+                            <!--Option cannot be removed for bootstrapValidator verification-->
+                            <option value="{{if .User.Lab}}{{.User.Lab.ID}}{{end}}" selected="selected">{{if .User.Lab}}{{.User.Lab.Name}}{{end}}</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="position" class="col-md-4 control-label label-start">position<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{if .User}} {{if .User.Position}} {{.User.Position.Name}}{{end}} {{end}}</p>
+                            <select data-type="int" name="Position" id="position" class="form-control select-position {{.FormField}}" {{if .User}} {{if .User.Position}} data-default-id="{{.User.Position.ID}}" data-default-name="{{.User.Position.Name}}" {{end}} {{end}}>
+                            <option value="{{if .User.Position}}{{.User.Position.ID}}{{end}}" selected="selected">{{if .User.Position}}{{.User.Position.Name}}{{end}}</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usergroup" class="col-md-4 control-label label-start">Rights Groups<span class="required-input">&nbsp*</span></label>
+                        <div class="col-md-8">
+                            <p class="p-form-control"> {{if .User}} {{if .User.Groups}} {{range .User.Groups}}<a class='display-block label label-primary'>{{.name}}</a>{{end}}{{end}} {{end}}</p>
+                            <select data-type="array_int" name="Group" id="usergroup" multiple="multiple" class="form-control select-group {{.FormField}}">
+                            {{range  .User.Groups}}
+                            <option value="{{.id}}" selected="selected">{{.name}}</option>
+                            {{end}}
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
