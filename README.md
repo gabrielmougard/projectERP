@@ -1,1 +1,1 @@
-# Project Pool mangement system
+# Project Pool management system
