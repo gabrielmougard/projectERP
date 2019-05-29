@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Groups version="1">
+	<group>
+		<name>System administrator</name>
+	</group>
+    <group>
+		<name>Product developer</name>
+	</group>
+    <group>
+		<name>Product owner</name>
+	</group>
+</Groups>

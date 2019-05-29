@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Districts>
+  <District ID="1" DistrictName="paris" CID="1">Paris</District>
+  <District ID="1" DistrictName="hauts-de-seine" CID="1">Hauts-de-Seine</District>
+  <District ID="1" DistrictName="val-de-marne" CID="1">Val-de-Marne</District>
+  <District ID="1" DistrictName="seine-saint-denis" CID="1">Seine-Saint-Denis</District>
+  <District ID="1" DistrictName="val-d'oise" CID="1">Val-d'Oise</District>
+  <District ID="1" DistrictName="yvelines" CID="1">Yvelines</District>
+  <District ID="1" DistrictName="essonne" CID="1">Essonne</District>
+  <District ID="1" DistrictName="seine-et-marne" CID="1">Seine-et-Marne</District>
+</Districts>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cities>
+  <City ID="1" CityName="Paris1" PID="1" ZipCode="75001">Paris 1</City>
+  <City ID="2" CityName="Paris2" PID="1" ZipCode="75002">Paris 2</City>
+  <City ID="3" CityName="Paris3" PID="1" ZipCode="75003">Paris 3</City>
+  <City ID="4" CityName="Paris4" PID="1" ZipCode="75004">Paris 4</City>
+  <City ID="5" CityName="Paris5" PID="1" ZipCode="75005">Paris 5</City>
+  <City ID="6" CityName="Paris6" PID="1" ZipCode="75006">Paris 6</City>
+  <City ID="7" CityName="Paris7" PID="1" ZipCode="75007">Paris 7</City>
+  <City ID="8" CityName="Paris8" PID="1" ZipCode="75008">Paris 8</City>
+  <City ID="9" CityName="Paris9" PID="1" ZipCode="75009">Paris 9</City>
+  <City ID="10" CityName="Paris10" PID="1" ZipCode="75010">Paris 10</City>
+  <City ID="11" CityName="Paris11" PID="1" ZipCode="75011">Paris 11</City>
+  <City ID="12" CityName="Paris12" PID="1" ZipCode="75012">Paris 12</City>
+  <City ID="13" CityName="Paris13" PID="1" ZipCode="75013">Paris 13</City>
+  <City ID="14" CityName="Paris14" PID="1" ZipCode="75014">Paris 14</City>
+  <City ID="15" CityName="Paris15" PID="1" ZipCode="75015">Paris 15</City>
+  <City ID="16" CityName="Paris16" PID="1" ZipCode="75016">Paris 16</City>
+  <City ID="17" CityName="Paris17" PID="1" ZipCode="75017">Paris 17</City>
+  <City ID="18" CityName="Paris18" PID="1" ZipCode="75018">Paris 18</City>
+  <City ID="19" CityName="Paris19" PID="1" ZipCode="75019">Paris 19</City>
+  <City ID="20" CityName="Paris20" PID="1" ZipCode="75020">Paris 20</City>
+  <City ID="21" CityName="other" PID="1" ZipCode="00000">Other</City>
+</Cities>

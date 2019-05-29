@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users version="1">
+	<user>
+		<name>garageadmin</name>
+		<email>gabriel.mougard@garageisep.com</email>
+		<mobile>0609622411</mobile>
+		<password>f4bc7a@59dedAc6d539</password>
+		<isAdmin>1</isAdmin>
+		<NameZh>System administrator (Gab)</NameZh>
+		<active>1</active>
+	</user>
+
+</Users>

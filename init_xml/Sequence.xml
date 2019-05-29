@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sequences version="1">
+	<Sequence>
+		<Name>Product style</Name>	
+        <StructName>ProductTemplate</StructName>   
+        <Prefix>G</Prefix>
+        <Current>0</Current>
+        <Padding>8</Padding>
+	</Sequence>
+    <Sequence>
+		<Name>Sales order</Name>	
+        <StructName>SaleOrder</StructName>   
+        <Prefix>S</Prefix>
+        <Current>0</Current>
+        <Padding>8</Padding>
+	</Sequence>
+    <Sequence>
+		<Name>Purchase order</Name>	
+        <StructName>PurchaseOrder</StructName>   
+        <Prefix>P</Prefix>
+        <Current>0</Current>
+        <Padding>8</Padding>
+	</Sequence>
+</Sequences>
