@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sources>
+    <source>
+        <name>User table</name>
+        <modelName>User</modelName>
+    </source>
+    <source>
+        <name>City</name>
+        <modelName>AddressCity</modelName>
+    </source>
+    <source>
+        <name>Country</name>
+        <modelName>AddressCountry</modelName>
+    </source>
+    <source>
+        <name>District</name>
+        <modelName>AddressDistrict</modelName>
+    </source>
+    <source>
+        <name>Province</name>
+        <modelName>AddressProvince</modelName>
+    </source>
+     <source>
+        <name>The company</name>
+        <modelName>Company</modelName>
+    </source>
+    <source>
+        <name>The Labs</name>
+        <modelName>Lab</modelName>
+    </source>
+    <source>
+        <name>Menu</name>
+        <modelName>Menu</modelName>
+    </source>
+    <source>
+        <name>Partners</name>
+        <modelName>Partner</modelName>
+    </source>
+    <source>
+        <name>Permission</name>
+        <modelName>Permission</modelName>
+    </source>
+    <source>
+        <name>Position</name>
+        <modelName>Position</modelName>
+    </source>
+    <source>
+        <name>Login log</name>
+        <modelName>Record</modelName>
+    </source>
+    <source>
+        <name>Role</name>
+        <modelName>Role</modelName>
+    </source>
+     <source>
+        <name>Document serial number</name>
+        <modelName>Sequence</modelName>
+    </source>
+    <source>
+        <name>System resource</name>
+        <modelName>Source</modelName>
+    </source>
+    <source>
+        <name>Team</name>
+        <modelName>Team</modelName>
+    </source>
+    <source>
+        <name>Template</name>
+        <modelName>TemplateFile</modelName>
+    </source>
+    <source>
+        <name>User</name>
+        <modelName>User</modelName>
+    </source>
+    <source>
+        <name>Product price list</name>
+        <modelName>ProductPriceList</modelName>
+    </source>
+    <source>
+        <name>Product attribute details</name>
+        <modelName>ProductAttributeLine</modelName>
+    </source>
+    <source>
+        <name>Product attribute price</name>
+        <modelName>ProductAttributePrice</modelName>
+    </source>
+    <source>
+        <name>Product attribute value</name>
+        <modelName>ProductAttributeValue</modelName>
+    </source>
+    <source>
+        <name>Product properties</name>
+        <modelName>ProductAttribute</modelName>
+    </source>
+    <source>
+        <name>Product Categories</name>
+        <modelName>ProductCategory</modelName>
+    </source>
+    <source>
+        <name>Product counter</name>
+        <modelName>ProductCounter</modelName>
+    </source>
+    <source>
+        <name>Product Image</name>
+        <modelName>ProductImage</modelName>
+    </source>
+    <source>
+        <name>Product packaging</name>
+        <modelName>ProductPackaging</modelName>
+    </source>
+    <source>
+        <name>Product price details</name>
+        <modelName>ProductPricelistItem</modelName>
+    </source>
+    <source>
+        <name>Product specifications</name>
+        <modelName>ProductProduct</modelName>
+    </source>
+    <source>
+        <name>Product supplier</name>
+        <modelName>ProductSupplier</modelName>
+    </source>
+    <source>
+        <name>Product label</name>
+        <modelName>ProductTag</modelName>
+    </source>
+    <source>
+        <name>Product style</name>
+        <modelName>ProductTemplate</modelName>
+    </source>
+    <source>
+        <name>Product unit category</name>
+        <modelName>ProductUomCateg</modelName>
+    </source>
+    <source>
+        <name>Product unit</name>
+        <modelName>ProductUom</modelName>
+    </source>
+    <source>
+        <name>Purchase configuration</name>
+        <modelName>PurchaseConfig</modelName>
+    </source>
+    <source>
+        <name>Purchase order detail status</name>
+        <modelName>PurchaseOrderLineState</modelName>
+    </source>
+    <source>
+        <name>Purchase order details</name>
+        <modelName>PurchaseOrderLine</modelName>
+    </source>   
+     <source>
+         <name>Purchase order status</name>
+         <modelName>PurchaseOrderState</modelName>
+     </source>
+    <source>
+        <name>Purchase order</name>
+        <modelName>PurchaseOrder</modelName>
+    </source>
+    <source>
+        <name>Sales configuration</name>
+        <modelName>SaleConfig</modelName>
+    </source>
+    <source>
+        <name>Sales order detail status</name>
+        <modelName>SaleOrderLineState</modelName>
+    </source>
+    <source>
+        <name>Sales order details</name>
+        <modelName>SaleOrderLine</modelName>
+    </source>
+    <source>
+        <name>Sales order status</name>
+        <modelName>SaleOrderState</modelName>
+    </source>
+    <source>
+        <name>Sales order</name>
+        <modelName>SaleOrder</modelName>
+    </source>
+    <source>
+        <name>Stock location</name>
+        <modelName>StockLocation</modelName>
+    </source>
+    <source>
+        <name>Moving details</name>
+        <modelName>StockMove</modelName>
+    </source>    
+</Sources>

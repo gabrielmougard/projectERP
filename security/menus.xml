@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Menus>
+    <menu>
+        <name>Settings</name>
+        <identity>SystemSetting</identity>
+    </menu>
+</Menus>
