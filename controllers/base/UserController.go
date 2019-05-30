@@ -222,8 +222,8 @@ func (ctl *UserController) userList(query map[string]interface{}, exclude map[st
 			oneLine := make(map[string]interface{})
 			oneLine["Name"] = user.Name
 			oneLine["NameZh"] = user.NameZh
-			if user.Department != nil {
-				oneLine["Department"] = user.Department.Name
+			if user.Lab != nil {
+				oneLine["Lab"] = user.Lab.Name
 			}
 			if user.Position != nil {
 				oneLine["Position"] = user.Position.Name

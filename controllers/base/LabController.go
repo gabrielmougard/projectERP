@@ -13,7 +13,7 @@ type LabController struct {
 	BaseController
 }
 
-func (ctl *DepartmentController) Post() {
+func (ctl *LabController) Post() {
 	ctl.URL = "/lab/"
 	ctl.Data["URL"] = ctl.URL
 	action := ctl.Input().Get("action")
