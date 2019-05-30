@@ -6,6 +6,10 @@ services:
       - "6379:6379"
   db:
     image: postgres
+    environment:
+      POSTGRES_PASSWORD: IYfdxRuiT76F4j5
+      POSTGRES_USER: root
+      POSTGRES_DB: db
     ports:
       - "5432:5432"
   erp:

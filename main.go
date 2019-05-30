@@ -22,19 +22,20 @@ const (
 )
 
 func init() {
-	dbType := beego.AppConfig.String("db_type")
-	dbAlias := beego.AppConfig.String(dbType + "::db_alias")
-	dbName := beego.AppConfig.String(dbType + "::db_name")
-	dbUser := beego.AppConfig.String(dbType + "::db_user")
-	dbPwd := beego.AppConfig.String(dbType + "::db_pwd")
-	dbPort := beego.AppConfig.String(dbType + "::db_port")
-	dbHost := beego.AppConfig.String(dbType + "::db_host")
+	dbType := "postgres"
+	dbAlias := "default"
+	dbName := "db"
+	dbUser := "postgres"
+	dbPwd := "IYfdxRuiT76F4j5"
+	dbPort := "5432"
+	dbHost := "db"
+
 	orm.RegisterDriver(dbType,orm.DRPostgres)
 
 	switch dbType {
 	case "postgres":
 
-		dbSslmode := beego.AppConfig.String(dbType + "::db_sslmode")
+		dbSslmode := "disable"
 		dataSource := "user=" + dbUser + " password=" + dbPwd + " dbname=" + dbName + " host=" + dbHost + " port=" + dbPort + " sslmode=" + dbSslmode
 		orm.RegisterDataBase(dbAlias, dbType, dataSource)
 
@@ -47,8 +48,12 @@ func init() {
 	case "sqlite3":
 
 		orm.RegisterDataBase(dbAlias, "sqlite3", dbName)
+	
+	default :
+		utils.LogOut("info","the database type hasn't been chosed !")
+	
 	}
-
+	
 	utils.LogOut("info","Use the database as : "+dbType)
 
 	//If we rerun the program it will not delete the original table
@@ -59,7 +64,7 @@ func init() {
 	InitApp()
 	InitDb()
 
-	//cahce initialization
+	//cache initialization
 	utils.InitCache()
 	beego.AddFuncMap("i18n",i18n.Tr) //internationalization
 
@@ -68,6 +73,7 @@ func init() {
 
 func main() {
 
+	
 	utils.LogOut("info", "start server")
 	beego.Run()
 }
