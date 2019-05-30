@@ -22,13 +22,13 @@ const (
 )
 
 func init() {
-	dbType := "postgres"
-	dbAlias := "default"
-	dbName := "db"
-	dbUser := "postgres"
-	dbPwd := "IYfdxRuiT76F4j5"
-	dbPort := "5432"
-	dbHost := "db"
+	dbType := beego.AppConfig.String("db_type")
+	dbAlias := beego.AppConfig.String(dbType + "::db_alias")
+	dbName := beego.AppConfig.String(dbType + "::db_name")
+	dbUser := beego.AppConfig.String(dbType + "::db_user")
+	dbPwd := beego.AppConfig.String(dbType + "::db_pwd")
+	dbPort := beego.AppConfig.String(dbType + "::db_port")
+	dbHost := beego.AppConfig.String(dbType + "::db_host")
 
 	orm.RegisterDriver(dbType,orm.DRPostgres)
 
@@ -57,7 +57,11 @@ func init() {
 	utils.LogOut("info","Use the database as : "+dbType)
 
 	//If we rerun the program it will not delete the original table
-	coverDb, _ := beego.AppConfig.Bool("cover_db")
+	coverDb := true
+	if coverDb {
+		utils.LogOut("info","coverDb is true")
+	}
+	
 
 	//automatic table construction
 	orm.RunSyncdb(dbAlias, coverDb, true)
