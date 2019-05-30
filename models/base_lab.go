@@ -22,7 +22,7 @@ type Lab struct {
 	Parent     *Lab   `orm:"rel(fk);null"`                         
 	Childs     []*Lab `orm:"reverse(many)"`                        
 	Members    []*User       `orm:"reverse(many)"`                        
-	Association    *Association     `orm:"rel(fk);null"`                         
+	Company    *Company     `orm:"rel(fk);null"`                         
 
 	FormAction   string   `orm:"-" json:"FormAction"`   
 	ActionFields []string `orm:"-" json:"ActionFields"` 
@@ -129,7 +129,7 @@ func GetAllLab(query map[string]interface{}, exclude map[string]interface{}, con
 	qs := o.QueryTable(new(Lab))
 	qs = qs.RelatedSel()
 
-	//cond k=v cond必须放到Filter和Exclude前面
+
 	cond := orm.NewCondition()
 	if _, ok := condMap["and"]; ok {
 		andMap := condMap["and"]

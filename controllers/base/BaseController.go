@@ -25,6 +25,7 @@ type BaseController struct {
 	URL string 
 	LastLogin time.Time 
 	User md.User 
+	i18n.Locale
 	PageName string 
 	PageAction string
 }

@@ -22,6 +22,7 @@ type Position struct {
 
 	FormAction   string   `orm:"-" json:"FormAction"`   
 	ActionFields []string `orm:"-" json:"ActionFields"` 
+}
 
 func init() {
 	orm.RegisterModel(new(Position))

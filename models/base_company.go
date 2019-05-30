@@ -110,7 +110,7 @@ func GetCompanyByID(id int64) (obj *Company, err error) {
 // Name doesn't exist
 func GetCompanyByName(name string) (*Company, error) {
 	o := orm.NewOrm()
-	var obj Assocation
+	var obj Company
 	cond := orm.NewCondition()
 	cond = cond.And("Name", name)
 	qs := o.QueryTable(&obj)

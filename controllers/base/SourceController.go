@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// SourceController 公司
+// SourceController 
 type SourceController struct {
 	BaseController
 }

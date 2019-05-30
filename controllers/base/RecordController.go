@@ -6,7 +6,7 @@ import (
 	md "projectERP/models"
 )
 
-// RecordController 登录日志
+// RecordController 
 type RecordController struct {
 	BaseController
 }
@@ -18,7 +18,7 @@ func (ctl *RecordController) Get() {
 	ctl.Data["URL"] = ctl.URL
 	ctl.Data["MenuRecordActive"] = "active"
 	ctl.GetList()
-	// 标题合成
+	
 	b := bytes.Buffer{}
 	b.WriteString(ctl.PageName)
 	b.WriteString("\\")
